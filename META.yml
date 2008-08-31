@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                github_creator
-version:             0.11
+version:             0.12
 abstract:            Create a Github repository for your Perl module
 license:             perl
 author:              
