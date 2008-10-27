@@ -4,7 +4,7 @@ use warnings;
 use subs qw(INFO DEBUG);
 use vars qw($VERSION);
 
-$VERSION = 0.12;
+$VERSION = '0.13';
 
 =head1 NAME
 
@@ -104,7 +104,7 @@ You may redistribute this under the same terms as Perl itself.
 =cut
 
 use Log::Log4perl qw(:easy);
-Log::Log4perl->easy_init( $DEBUG );
+Log::Log4perl->easy_init( $INFO );
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Should we run?
@@ -204,7 +204,6 @@ $mech->submit_form(
 	fields      => {
 		login       => $Config{account},
 		password    => $Config{password},
-		remember_me => 1,
 		commit      => 'Log in',
 	}
 	);
@@ -238,6 +237,8 @@ $mech->submit_form(
 my( $private ) = $mech->content =~ m/git remote add origin (.*)/;
 DEBUG( "Private URL is [$private]" );
 die "No private URL! Might be GitHub's fault\n" unless defined $private;
+
+sleep 5; # github needs a moment to thing
 
 system( "git remote add $Config{remote_name} $private" );
 system( "git push $Config{remote_name} master" );

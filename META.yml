@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                github_creator
-version:             0.12
+version:             0.13
 abstract:            Create a Github repository for your Perl module
 license:             perl
 author:              
@@ -10,7 +10,9 @@ distribution_type:   module
 requires:     
     Config::IniFiles:              0
     File::Find::Closures:          0
+    Log::Log4perl:                 0
     Test::More:                    0
+    Test::Output:                  0
     WWW::Mechanize:                0
     YAML:                          0
 meta-spec:
